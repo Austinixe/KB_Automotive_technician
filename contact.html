@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | KB Automotive Technician</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">KB <span>Automotive</span></a>
+
+      <nav id="navMenu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="training.html">Training</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+ <section class="hero" style="background: var(--black); color: var(--white);">
+  <div class="container">
+    <h1>Contact KB Automotive Technician</h1>
+    <p>We’re here to help with all automotive service and training inquiries.</p>
+  </div>
+</section>
+
+
+  <!-- ===== CONTACT INFO ===== -->
+  <section class="container" style="padding: 4rem 0;">
+    <h2 style="text-align:center;">Get In Touch</h2>
+    <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">
+      Whether you need expert vehicle care, want to enroll in a training program, or just have a question — 
+      our team is ready to assist you. Reach us using the contact details or form below.
+    </p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>📍 Our Address</h3>
+        <p>Adeola Odeku Road, Victoria Island, Lagos, Nigeria</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📞 Phone</h3>
+        <p>+234 801 234 5678</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📧 Email</h3>
+        <p>info@kbautomotive.ng</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT FORM ===== -->
+  <section class="contact-cta" style="background:#fff; color:#111;">
+    <div class="container">
+      <h2 style="color:#111;">Send Us a Message</h2>
+      <form id="contactForm" class="contact-form" style="max-width:600px; margin:auto; text-align:left;">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+234 ..." />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+
+        <button type="submit" class="btn" style="margin-top:1rem;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 KB Automotive Technician Nig Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div id="backToTop">↑</div>
+</body>
+</html>
