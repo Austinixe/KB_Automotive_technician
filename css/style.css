@@ -43,6 +43,9 @@ body {
 }
 
 .nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,57 +78,75 @@ body {
   color: var(--yellow);
 }
 
+/* === MOBILE TOGGLE & MENU === */
 .menu-toggle {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--yellow);
   cursor: pointer;
-  display: none;
+  display: none; /* only visible on mobile */
+  user-select: none;
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+  position: relative;
+  z-index: 10001; /* ensure toggle is above menu */
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   .nav-menu {
     position: absolute;
-    top: 70px;
+    top: 60px; /* below navbar */
     right: 0;
     width: 100%;
-    background: var(--black);
     flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    padding: 1rem 0;
+    background: var(--black);
     display: none;
+    text-align: center;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    z-index: 10000; /* above all content */
   }
 
   .nav-menu.show {
     display: flex;
   }
 
-  .menu-toggle {
+  .nav-menu a {
+    padding: 0.8rem 1rem;
     display: block;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10001; /* ensure links clickable */
+  }
+
+  .nav-menu a:first-child {
+    border-top: none;
   }
 }
 
 /* === HERO SECTION === */
-/* === HERO SECTION === */
 .hero {
-  background: var(--black); /* fallback color if no image yet */
+  background: var(--black);
   color: var(--white);
   padding: 6rem 0;
   text-align: center;
-  opacity: 0; /* start hidden */
-  animation: fadeInHero 1.8s ease-in-out forwards; /* fade-in on load */
+  opacity: 0;
+  animation: fadeInHero 1.8s ease-in-out forwards;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  min-height: 60vh; /* ensures hero is visible even without image */
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-/* Overlay for text readability */
 .hero::before {
   content: "";
   position: absolute;
@@ -134,14 +155,12 @@ body {
   z-index: 0;
 }
 
-/* Hero container content sits above overlay */
 .hero .container {
   position: relative;
   z-index: 1;
   max-width: 900px;
 }
 
-/* Hero text */
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -154,7 +173,6 @@ body {
   line-height: 1.5;
 }
 
-/* Button styles */
 .btn {
   background: var(--yellow);
   color: var(--black);
@@ -171,7 +189,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Fade-in keyframes */
 @keyframes fadeInHero {
   0% {
     opacity: 0;
@@ -182,19 +199,6 @@ body {
     transform: translateY(0);
   }
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-}
-
 
 /* === ABOUT SECTION === */
 .about {
@@ -212,7 +216,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* === SERVICES PAGE === */
+/* === SERVICES SECTION === */
 .services {
   background: #fff;
   padding: 4rem 0;
@@ -222,12 +226,6 @@ body {
   text-align: center;
   margin-bottom: 2rem;
   color: var(--black);
-}
-
-.services p {
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #444;
 }
 
 .service-grid {
@@ -285,39 +283,6 @@ body {
 .contact-cta p {
   max-width: 700px;
   margin: 0.5rem auto 1.5rem;
-}
-
-/* === CONTACT PAGE === */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-form label {
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  resize: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--yellow);
-  box-shadow: 0 0 5px rgba(244, 196, 48, 0.6);
-}
-
-.contact-form button {
-  align-self: flex-start;
 }
 
 /* === FOOTER === */
@@ -379,11 +344,18 @@ body {
 }
 
 /* === MEDIA QUERIES === */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
 
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
   .about,
   .services,
   .training-highlight,
