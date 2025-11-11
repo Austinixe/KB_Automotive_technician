@@ -4,37 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KB Automotive Technician | Home</title>
+  <meta name="description" content="KB Automotive Technician provides expert vehicle diagnostics, maintenance, and professional automotive training in Victoria Island, Lagos, Nigeria.">
+  <meta name="keywords" content="automotive technician, car repair, diagnostics, training, Lagos, Nigeria, vehicle maintenance, KB Auto">
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="KB Automotive Technician Nig Ltd">
+  <meta property="og:description" content="Professional automotive diagnostics, repair, and training in Lagos, Nigeria.">
+  <meta property="og:image" content="assets/images/og-preview.jpg">
+  <meta property="og:type" content="website">
+<!-- Standard desktop favicon -->
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+
+<!-- Optional SVG favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+
+<!-- Apple / iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+
+<!-- Android / PWA -->
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+<link rel="manifest" href="assets/favicon/site.webmanifest">
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Script -->
   <script defer src="js/main.js"></script>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-<header class="navbar">
-  <div class="container nav-container">
-    <a href="index.html" class="logo">KB <span>Automotive</span></a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">KB <span>Automotive</span></a>
 
-    <nav id="navMenu" class="nav-menu">
-      <a href="index.html" class="active">Home</a>
-      <a href="services.html">Services</a>
-      <a href="training.html">Training</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <nav id="navMenu" class="nav-menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="training.html">Training</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-    <div class="menu-toggle" id="menuToggle">&#9776;</div>
-  </div>
-</header>
+      <div class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
 
- 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero" style="background: url('assets/images/auto_bg.jpg') center/cover no-repeat;">
-  <div class="container">
-    <h1>Welcome to KB Automotive Technician</h1>
-    <p>Expert automotive diagnostics, maintenance, and professional training for the next generation of technicians.</p>
-    <a href="services.html" class="btn">Explore Services</a>
-  </div>
-</section>
+  <!-- ===== HERO SECTION ===== -->
+  <section id="main-content" class="hero home-hero">
+    <div class="container hero-content">
+      <h1>Welcome to KB Automotive Technician</h1>
+      <p>Expert automotive diagnostics, maintenance, and professional training for the next generation of technicians.</p>
+      <a href="services.html" class="btn">Explore Services</a>
+    </div>
+  </section>
 
-  <!-- ===== ABOUT SECTION ===== -->
+  <!-- ===== ABOUT ===== -->
   <section class="about container">
     <h2>About KB Automotive Technician Nig Ltd</h2>
     <p>
@@ -49,25 +80,29 @@
     </p>
   </section>
 
-  <!-- ===== SERVICES SECTION ===== -->
+  <!-- ===== SERVICES ===== -->
   <section class="services">
     <div class="container">
       <h2>Our Core Services</h2>
       <div class="service-grid">
         <div class="service-card">
-          <h3>🔧 Vehicle Maintenance</h3>
+          <i class="fas fa-tools"></i>
+          <h3>Vehicle Maintenance</h3>
           <p>Comprehensive servicing, repairs, and component replacements for modern vehicles.</p>
         </div>
         <div class="service-card">
-          <h3>⚙️ Diagnostics & Electricals</h3>
+          <i class="fas fa-car-battery"></i>
+          <h3>Diagnostics & Electricals</h3>
           <p>Advanced diagnostic scans, fault detection, and precision electrical repairs.</p>
         </div>
         <div class="service-card">
-          <h3>🛞 Suspension & Alignment</h3>
+          <i class="fas fa-car-side"></i>
+          <h3>Suspension & Alignment</h3>
           <p>Wheel balancing, alignment, and undercarriage maintenance for smooth rides.</p>
         </div>
         <div class="service-card">
-          <h3>🎓 Technician Training</h3>
+          <i class="fas fa-user-graduate"></i>
+          <h3>Technician Training</h3>
           <p>Practical training programs designed to build certified automotive professionals.</p>
         </div>
       </div>
@@ -101,14 +136,25 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container">
+  <div class="container footer-content">
+    <div class="footer-info">
       <p>© 2025 KB Automotive Technician Nig Ltd. All Rights Reserved.</p>
+      <p>RC No: 1234567 — Plot 14 Adeola Odeku Road, Victoria Island, Lagos, Nigeria</p>
     </div>
-  </footer>
 
-    <!-- Back to Top Button -->
-  <div id="backToTop">↑</div>
-<script defer src="js/main.js"></script>
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <div id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
 
 </body>
 </html>

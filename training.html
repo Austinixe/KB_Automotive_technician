@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KB Automotive Technician | Training</title>
+  <title>KB Automotive Technician | Home</title>
+  <meta name="description" content="KB Automotive Technician provides expert vehicle diagnostics, maintenance, and professional automotive training in Victoria Island, Lagos, Nigeria.">
+  <meta name="keywords" content="automotive technician, car repair, diagnostics, training, Lagos, Nigeria, vehicle maintenance, KB Auto">
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="KB Automotive Technician Nig Ltd">
+  <meta property="og:description" content="Professional automotive diagnostics, repair, and training in Lagos, Nigeria.">
+  <meta property="og:image" content="assets/images/og-preview.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
-  <script defer src="js/main.js"></script>
+
+<!-- Paystack Inline JS -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<!-- Your main JS -->
+<script defer src="js/main.js"></script>
+
 </head>
 <body>
+  <!-- ♿ Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <!-- ===== HEADER ===== -->
   <header class="navbar">
     <div class="container nav-container">
@@ -17,7 +44,6 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="training.html" class="active">Training</a>
-        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -25,8 +51,8 @@
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero training-hero">
+  <!-- ===== HERO SECTION (Main Content Start) ===== -->
+  <section id="main-content" class="hero training-hero">
     <div class="container">
       <h1>Automotive Technician Training</h1>
       <p>Empowering Technicians for the Future of Mobility</p>
@@ -53,7 +79,7 @@
 
   <!-- ===== VISION & MISSION ===== -->
   <section class="vision-mission">
-    <div class="container">
+    <div class="container vm-grid">
       <div class="vm-box">
         <h3>🎯 Vision</h3>
         <p>To become Africa’s most trusted centre for world-class automotive technician education.</p>
@@ -100,73 +126,133 @@
   </section>
 
   <!-- ===== DOWNLOAD FORM ===== -->
-  <section class="download-form container">
+  <section class="download-form container cta-padding">
     <h2>Download Application Form</h2>
     <p>You can download and fill the offline version of our application form below.</p>
     <a href="assets/forms/KB-Automotive-Training-Form.pdf" class="btn" download>📄 Download Application Form</a>
   </section>
 
-  <!-- ===== ONLINE APPLICATION FORM ===== -->
-  <section class="online-form container">
-    <h2>Student Training Application Form</h2>
-    <form id="trainingForm">
-      <h3>Personal Information</h3>
-      <label>Full Name</label>
-      <input type="text" name="fullname" required />
-      <label>Date of Birth</label>
-      <input type="date" name="dob" required />
-      <label>Gender</label>
-      <select name="gender" required>
-        <option value="">Select</option>
-        <option>Male</option>
-        <option>Female</option>
-      </select>
+  <!-- ===== ONLINE ENROLLMENT WITH PAYMENT ===== -->
+<section class="online-form container">
+  <h2>Student Training Enrollment Form</h2>
+  <form id="trainingForm" action="thank-you.html" method="POST">
 
-      <label>Address</label>
-      <input type="text" name="address" required />
+    <h3>Personal Information</h3>
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullname" required autocomplete="name" />
 
-      <label>Phone Number</label>
-      <input type="tel" name="phone" required />
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required autocomplete="bday" />
 
-      <label>Email Address</label>
-      <input type="email" name="email" required />
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
 
-      <h3>Course Selection</h3>
-      <select name="course" required>
-        <option value="">Select Course</option>
-        <option>Basic Automotive Maintenance – ₦100,000</option>
-        <option>Advanced Diagnostic & Electrical – ₦250,000</option>
-        <option>Full Professional Technician Certification – ₦500,000</option>
-      </select>
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" required autocomplete="street-address" />
 
-      <h3>Academic & Technical Background</h3>
-      <label>Highest Level of Education</label>
-      <input type="text" name="education" required />
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required autocomplete="tel" />
 
-      <label>Previous Automotive Training?</label>
-      <select name="previousTraining">
-        <option value="">Select</option>
-        <option>Yes</option>
-        <option>No</option>
-      </select>
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required autocomplete="email" />
 
-      <h3>Emergency Contact</h3>
-      <label>Name</label>
-      <input type="text" name="emergencyName" required />
-      <label>Relationship</label>
-      <input type="text" name="emergencyRelation" required />
-      <label>Phone</label>
-      <input type="tel" name="emergencyPhone" required />
+    <h3>Course Selection</h3>
+    <select id="course" name="course" required>
+      <option value="">Select Course</option>
+      <option value="100000">Basic Automotive Maintenance – ₦100,000</option>
+      <option value="250000">Advanced Diagnostic & Electrical – ₦250,000</option>
+      <option value="500000">Full Professional Technician Certification – ₦500,000</option>
+    </select>
 
-      <button type="submit" class="btn">Submit Application</button>
-    </form>
-  </section>
+    <h3>Academic & Technical Background</h3>
+    <label for="education">Highest Level of Education</label>
+    <input type="text" id="education" name="education" required />
 
+    <label for="previousTraining">Previous Automotive Training?</label>
+    <select id="previousTraining" name="previousTraining">
+      <option value="">Select</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <h3>Emergency Contact</h3>
+    <label for="emergencyName">Name</label>
+    <input type="text" id="emergencyName" name="emergencyName" required autocomplete="off" />
+
+    <label for="emergencyRelation">Relationship</label>
+    <input type="text" id="emergencyRelation" name="emergencyRelation" required autocomplete="off" />
+
+    <label for="emergencyPhone">Phone</label>
+    <input type="tel" id="emergencyPhone" name="emergencyPhone" required autocomplete="off" />
+
+    <button type="button" id="payButton" class="btn">Pay & Submit</button>
+  </form>
+</section>
+
+<script>
+document.getElementById('payButton').addEventListener('click', function () {
+  const form = document.getElementById('trainingForm');
+  
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const email = document.getElementById('email').value;
+  const amount = document.getElementById('course').value;
+
+  if(!amount){
+    alert("Please select a course.");
+    return;
+  }
+
+  let handler = PaystackPop.setup({
+    key: 'pk_test_144b15e8615f9c388772721de3eecf32596131b0', // Replace with your Paystack public key
+    email: email,
+    amount: amount * 100, // Amount in kobo
+    currency: 'NGN',
+    ref: 'KBTRAIN' + Math.floor(Math.random() * 1000000000 + 1),
+   callback: function(response){
+  alert('Payment successful! Transaction Ref: ' + response.reference);
+  // Redirect after successful payment
+  window.location.href = 'thank-you.html';
+},
+    onClose: function(){
+      alert('Payment was not completed.');
+    }
+  });
+  handler.openIframe();
+});
+</script>
+
+
+  <!-- ===== FOOTER (WITH SOCIAL LINKS) ===== -->
+  
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
+   <footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-info">
       <p>© 2025 KB Automotive Technician Nig Ltd. All Rights Reserved.</p>
+      <p>RC No: 1234567 — Plot 14 Adeola Odeku Road, Victoria Island, Lagos, Nigeria</p>
     </div>
-  </footer>
+
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+  <!-- ===== BACK TO TOP ===== -->
+  <div id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
 </body>
 </html>

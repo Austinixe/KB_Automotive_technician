@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* Note: Ensure 'Poppins' is imported via Google Fonts or loaded locally */
+  font-family: "Poppins", sans-serif; 
 }
 
 html {
@@ -30,6 +31,35 @@ body {
   --yellow: #f4c430;
   --black: #111;
   --white: #fff;
+}
+
+/* --- ACCESSIBILITY --- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 1000;
+    /* Hide the link off-screen until focus */
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    white-space: nowrap; 
+}
+
+.skip-link:focus {
+    clip: auto;
+    clip-path: none;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    background: var(--yellow);
+    color: var(--black);
+    text-decoration: none;
+    height: auto;
+    width: auto;
+    display: block;
+    text-align: center;
 }
 
 /* === NAVBAR === */
@@ -147,6 +177,16 @@ body {
   overflow: hidden;
 }
 
+/* Specific background for the homepage hero */
+.home-hero {
+    background-image: url('../assets/images/auto_bg.jpg');
+}
+/* Placeholder style for training hero - recommend adding a dedicated image here */
+.training-hero {
+    background: var(--black); /* Keeps it black if no image is set */
+}
+
+
 .hero::before {
   content: "";
   position: absolute;
@@ -200,7 +240,7 @@ body {
   }
 }
 
-/* === ABOUT SECTION === */
+/* === ABOUT SECTION (General) === */
 .about {
   padding: 4rem 0;
 }
@@ -216,7 +256,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* === SERVICES SECTION === */
+/* === SERVICES SECTION (General) === */
 .services {
   background: #fff;
   padding: 4rem 0;
@@ -259,7 +299,7 @@ body {
   border-color: var(--black);
 }
 
-/* === TRAINING HIGHLIGHT === */
+/* === TRAINING HIGHLIGHT (General CTA) === */
 .training-highlight {
   background: var(--black);
   color: var(--white);
@@ -285,7 +325,45 @@ body {
   margin: 0.5rem auto 1.5rem;
 }
 
-/* === FOOTER === */
+/* === CONTACT FORM (Replicating styles from index for consistency) === */
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 0.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--yellow);
+    box-shadow: 0 0 8px rgba(244,196,48,0.4);
+}
+
+.contact-form .btn {
+    margin-top: 1.5rem;
+    width: 100%; /* Full width button on form */
+}
+
+
+/* === FOOTER & SOCIAL LINKS === */
 .footer {
   background: var(--black);
   color: var(--white);
@@ -295,6 +373,111 @@ body {
   font-size: 0.9rem;
 }
 
+.footer-content {
+    /* Set up Flexbox for layout */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+    .footer-content {
+        /* Side-by-side on desktop */
+        flex-direction: row; 
+    }
+}
+
+.copyright {
+    margin-bottom: 1rem; /* Space above icons on mobile */
+}
+
+@media (min-width: 769px) {
+    .copyright {
+        margin-bottom: 0;
+    }
+}
+/* === FOOTER & SOCIAL LINKS === */
+.footer {
+  background: var(--black);
+  color: var(--light-grey);
+  padding: 2rem 0;
+  margin-top: auto;
+  font-size: 1rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+    .footer-content {
+        flex-direction: row; 
+    }
+}
+.footer {
+  text-align: center; /* makes all inline elements center */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.footer-info p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.footer .copyright {
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center !important;
+  width: 100%;
+  display: block;
+}
+
+
+@media (min-width: 769px) {
+    .copyright {
+        margin-bottom: 0;
+        
+    }
+}
+
+.social-links {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 1rem;
+}
+.social-icon {
+    /* Base styling for the link container */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white); /* Icons are initially light grey */
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    text-decoration: none; 
+    padding: 5px; /* Ensures a good touch target area for mobile users */
+}
+
+.social-icon i {
+    /* Styling the actual Font Awesome icon */
+    font-size: 1.5rem; 
+}
+
+
+.social-icon:hover {
+    color: var(--yellow); /* Hover color changes to brand yellow */
+    transform: scale(1.15); /* Subtle zoom effect on hover */
+}
 /* === COOKIE BANNER === */
 .cookie-banner {
   position: fixed;
@@ -343,7 +526,205 @@ body {
   transform: scale(1.1);
 }
 
-/* === MEDIA QUERIES === */
+/* === ONLINE TRAINING FORM STYLING (General usage for forms) === */
+.online-form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  border: 2px solid var(--yellow);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+.online-form h2 {
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.online-form h3 {
+  color: var(--yellow);
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 4px;
+}
+
+.online-form label {
+  display: block;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.online-form input,
+.online-form select,
+.online-form textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.online-form input:focus,
+.online-form select:focus,
+.online-form textarea:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 8px rgba(244,196,48,0.4);
+}
+
+.online-form button {
+  margin-top: 1.5rem;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.online-form button:hover {
+  background: #ffda44;
+  transform: scale(1.05);
+}
+
+/* === TRAINING PAGE SPECIFIC STYLES ADDED === */
+
+/* --- ABOUT TRAINING --- */
+.training-about {
+    padding: 4rem 0;
+}
+
+.training-about h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.training-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f1f1f1;
+    border-left: 5px solid var(--yellow);
+    border-radius: 5px;
+}
+
+.training-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* --- VISION & MISSION --- */
+.vision-mission {
+    background: #eee; /* Light gray background to distinguish from sections */
+    padding: 4rem 0;
+}
+
+.vm-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .vm-grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.vm-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1; 
+    text-align: center;
+}
+
+.vm-box h3 {
+    color: var(--black);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- TRAINING MODULES (Syllabus) --- */
+.training-modules {
+    padding: 4rem 0;
+}
+
+.training-modules h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--black);
+    font-size: 2rem;
+}
+
+.module {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.module h3 {
+    color: var(--yellow);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.module ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.module li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+}
+
+.module li::before {
+    content: "•";
+    color: var(--black); 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* --- DOWNLOAD FORM CTA --- */
+.download-form {
+    padding: 4rem 0; /* Increased padding for emphasis */
+    text-align: center;
+}
+
+.download-form h2 {
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.download-form p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* === MEDIA QUERIES (Updated) === */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -353,19 +734,28 @@ body {
     font-size: 1rem;
     padding: 0 1rem;
   }
+
+  .online-form {
+    padding: 1.5rem 1.5rem;
+  }
+  .online-form h2 {
+    font-size: 1.8rem;
+  }
+  .online-form h3 {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 600px) {
   .about,
   .services,
   .training-highlight,
-  .contact-cta {
+  .contact-cta,
+  .training-about,
+  .vision-mission,
+  .training-modules,
+  .download-form { /* Added training sections to smaller padding rule */
     padding: 2.5rem 1rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.95rem;
   }
 
   .cookie-banner {
